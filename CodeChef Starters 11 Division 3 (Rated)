@@ -1,0 +1,225 @@
+1.Find the Direction Problem Code: FACEDIR
+
+Solution :
+
+t = int(input())
+while(t):
+    a=int(input())
+    if(a%4==0):
+        print("North")
+    elif(a%4==1):
+        print("East")
+    elif(a%4==2):
+        print("South")
+    else:
+        print("West")
+    t-=1;    
+    
+    
+********************************************************************************************************************************************************************
+2.The Two Dishes  Problem Code: MAX_DIFF
+
+
+Solution :
+
+    t=int(input())
+while(t):
+    n,s=map(int,input().split(' '))
+    if(s<=n):
+        ans=s-0
+    else:
+        crr=s-n
+        ans=n-crr
+    print(ans)
+    t-=1
+    
+    
+*********************************************************************************************************************************************************************
+
+3.Obtain the Sum Problem Code: BIGARRAY
+
+Solution :
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ff(a, c)        for (int(a) = 0; (a) < (c); (a)++)
+#define w(x)            int x; cin >> x; while(x--)
+#define int             unsigned long long
+int32_t main() {
+    
+   w(t) {
+      int n, s;
+      cin >> n >> s;
+      int ans = n * (n + 1) / 2;
+      // cout << ans << endl;
+      ans = ans - s;
+      // cout << ans << endl;
+      if (ans >= 1 and  ans <= n)  cout << ans << endl;
+      else cout << -1 << endl;
+   }
+   cout.clear();
+   cin.clear();
+   return 0;
+}
+
+
+********************************************************************************************************************************************************************
+4.The Grid Fill Problem Problem Code: FILLGRID
+
+Solution :
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  // your code goes here
+  int t;
+  cin>>t;
+  while(t--)
+  {
+      int n;
+      cin>>n;
+      if(n&1)
+      {vector<vector<int>>v(n,vector<int>(n,1));
+          int k=0;
+          for(int i=0;i<n;i++)
+          {
+              v[i][k]=-1;
+              k++;
+          }
+          for(int i=0;i<n;i++)
+          {
+              for(int j=0;j<n;j++)
+              cout<<v[i][j]<<" ";
+              
+              cout<<endl;
+          }
+          
+      }
+      else
+      {
+          vector<vector<int>>v(n,vector<int>(n,-1));
+           for(int i=0;i<n;i++)
+          {
+              for(int j=0;j<n;j++)
+              cout<<v[i][j]<<" ";
+              
+              cout<<endl;
+          }
+      }
+      
+  }
+  return 0;
+}
+
+
+********************************************************************************************************************************************************************
+
+5. Positive Spewing Problem Code: POSSPEW
+
+Solution :
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll          long long
+#define vi          vector<int>
+#define vll         vector<ll>
+#define pll         pair<ll, ll>
+#define pii         pair<int, int>
+#define ld          long double
+#define ff          first
+#define ss          second
+#define vs          vector<string>
+#define vpll        vector<pll>
+#define vb          vector<bool>
+#define mp          make_pair
+#define pb          push_back
+#define endl        '\n'
+const ll INF       = 2e18;
+const ll mod       = 1000000007;
+const ll mod2      = 998244353;
+signed main(){
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+    int tc = 0, t = 1;
+    cin >> t;
+    while (tc++ < t)
+    {
+        ll n, k;
+        cin >> n >> k;
+        vll arr(n);
+        for(int i = 0; i < n; i++){
+            cin >> arr[i];
+        }
+        bool all_zero = true;
+        for(auto x: arr){
+            if(x > 0){
+                all_zero = false;
+                break;
+            }
+        }
+        if(all_zero){
+        cout << 0 << endl;
+            continue;
+        }
+        if(k == 0){
+            ll ans = 0;
+            for(auto x: arr){
+                ans += x;
+            }
+            cout << ans << endl;
+            continue;
+        }
+        set<ll> pos;
+        set<ll, greater<ll>> posG;
+        for(int i = 0; i < n; i++){
+            if(arr[i] > 0){
+                pos.insert(i);
+                posG.insert(i);
+                pos.insert(i+n);
+                posG.insert(i+n);
+            }
+        }
+        vll ans_arr(n, k);
+        for(int i = 0; i < n; i++){
+            if(arr[i] == 0){
+                ll val1 = *pos.lower_bound(i);
+                ll val2 = *posG.lower_bound(i+n);
+                ll dist = min(abs(val1 - i), abs(val2 - (i+n)));
+                ans_arr[i] -= dist;
+            }
+        }
+        for(auto &x: ans_arr){
+            if(x < 0){
+                x = 0;
+            }
+        }
+        ll sum = 0;
+        for(auto x: arr){
+            sum += x;
+        }
+        for(auto x: ans_arr){
+            sum += 2LL*x;
+        }
+        cout << sum << endl;
+    }
+    return 0;
+}
+
+*******************************************************************************************************************************************************************
+6. A Counting Problem Problem Code: COUNTA
+
+***********************************Comming Soon***********************************
+
+
+*******************************************************************************************************************************************************************
+. ATM Queue Problem Code: ATMQ
+
+***********************************Comming Soon***********************************
+
+
+
+    
